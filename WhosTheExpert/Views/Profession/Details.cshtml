@@ -1,0 +1,32 @@
+﻿@model WhosTheExpert.Models.Profession
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Profession Details</h2>
+<hr />
+<div class="row form-border">
+    <div class="form-group">
+        <div class="row">
+            <div class="col-sm-1">
+                <label asp-for="Name"></label>
+            </div>
+            <div class="col-sm-4">
+                <input asp-for="Name" disabled class="form-control" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-1">
+                <label asp-for="Description"></label>
+            </div>
+            <div class="col-sm-6">
+                <input asp-for="Description" disabled class="form-control" />
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="form-group">
+        <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-sm btn-success">Edit</a>
+        <a asp-action="Index" class="btn btn-sm btn-default">Back to List</a>
+    </div>
+</div>
