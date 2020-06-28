@@ -22,12 +22,12 @@ namespace WhosTheExpert.Controllers
             return View(_db.Professions.ToList());
         }
 
-        public IActionResult Create() // GET
+        public IActionResult Create()                  // GET
         {
             return View();
         }
 
-        [HttpPost]                   // POST
+        [HttpPost]                                  // POST
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Profession profession)
         {
@@ -40,13 +40,14 @@ namespace WhosTheExpert.Controllers
             return View();
         }
 
-        public async Task<IActionResult> Details(int? id) // GET
+        // Profession/Details/3
+        public ActionResult Details(int id)              // GET
         {
-            if (id == null)
+            if (id == 0)
             {
                 return NotFound();
             }
-            var Profession = await _db.Professions.SingleOrDefaultAsync(m => m.Id == id);
+            var Profession = _db.Professions.SingleOrDefault(m => m.Id == id);
             if (Profession == null)
             {
                 return NotFound();
@@ -109,7 +110,7 @@ namespace WhosTheExpert.Controllers
                 await _db.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View();
+            return View(profession);
         }
 
         protected override void Dispose( bool disposing)

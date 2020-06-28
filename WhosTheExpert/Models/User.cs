@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WhosTheExpert.Models
 {
-    public class Profession
+    public class User
     {
         public int Id { get; set; }
 
@@ -14,6 +14,12 @@ namespace WhosTheExpert.Models
         public string Name { get; set; }
 
         public string Description { get; set; }
+
+        [Required]
+        public string Email { get; set; }
+
+        [Required]
+        public Boolean Admin { get; set; }
 
     }
 }

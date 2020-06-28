@@ -1,0 +1,58 @@
+﻿@model IEnumerable<WhosTheExpert.Models.Review>
+@{
+    ViewData["Title"] = "Review";
+}
+
+<h2>Reviews</h2>
+<hr />
+<p>
+    <a asp-action="Create" class="btn btn-sm btn-primary">Create New</a>
+</p>
+<br />
+<div class="form-border">
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(m => m.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(m => m.FromName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(m => m.ToName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(m => m.WriteUp)
+            </th>
+            <th>
+                @Html.DisplayNameFor(m => m.Score)
+            </th>
+            <th>Action</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(m => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(m => item.FromName)
+            </td>
+            <td>
+                @Html.DisplayFor(m => item.ToName)
+            </td>
+            <td>
+                @Html.DisplayFor(m => item.WriteUp)
+            </td>
+            <td>
+                @Html.DisplayFor(m => item.Score)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-success">Edit</a>
+                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-primary">Details</a>
+                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">Delete</a>
+            </td>
+        </tr>
+        }
+    </table>
+</div>

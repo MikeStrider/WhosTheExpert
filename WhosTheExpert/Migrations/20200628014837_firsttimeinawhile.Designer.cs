@@ -11,9 +11,10 @@ using WhosTheExpert.Models;
 namespace WhosTheExpert.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200628014837_firsttimeinawhile")]
+    partial class firsttimeinawhile
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -35,26 +36,7 @@ namespace WhosTheExpert.Migrations
                     b.ToTable("Professions");
                 });
 
-            modelBuilder.Entity("WhosTheExpert.Models.Review", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("FromName")
-                        .IsRequired();
-
-                    b.Property<int>("Score");
-
-                    b.Property<string>("ToName");
-
-                    b.Property<string>("WriteUp");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Reviews");
-                });
-
-            modelBuilder.Entity("WhosTheExpert.Models.User", b =>
+            modelBuilder.Entity("WhosTheExpert.Models.Users", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();

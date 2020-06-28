@@ -1,10 +1,10 @@
-﻿@model WhosTheExpert.Models.Profession
+﻿@model WhosTheExpert.Models.User
 
 @{
     ViewData["Title"] = "Create";
 }
 
-<h2>Add a Profession</h2>
+<h2>Add a User</h2>
 <hr />
 
 <form asp-action="Create">
@@ -25,6 +25,22 @@
                 </div>
                 <div class="col-sm-6">
                     <input asp-for="Description" class="form-control" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-1">
+                    <label asp-for="Email"></label>
+                </div>
+                <div class="col-sm-6">
+                    <input asp-for="Email" class="form-control" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-1">
+                    <label asp-for="Admin"></label>
+                </div>
+                <div class="col-sm-6">
+                    <input asp-for="Admin" class="form-control" />
                 </div>
             </div>
         </div>
