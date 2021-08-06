@@ -50,7 +50,6 @@ namespace WhosTheExpert.Controllers
 
         // POST
         // Details - none
-
         public async Task<IActionResult> Delete(int? id) // GET
         {
             if (id == null)

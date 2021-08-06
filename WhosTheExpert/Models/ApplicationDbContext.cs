@@ -12,8 +12,6 @@ namespace WhosTheExpert.Models
             : base(options)
         { }
 
-        // Profession is class ... Professtions is DB table name
-
         public DbSet<Profession> Professions { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Review> Reviews { get; set; }

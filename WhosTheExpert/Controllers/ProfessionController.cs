@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -19,7 +20,7 @@ namespace WhosTheExpert.Controllers
 
         public IActionResult Index()
         {
-            return View(_db.Professions.ToList());
+            return View(_db.Professions.FromSql("select * from Professions").ToList());
         }
 
         public IActionResult Create()                  // GET
@@ -47,12 +48,16 @@ namespace WhosTheExpert.Controllers
             {
                 return NotFound();
             }
+            var Reviews = _db.Reviews.FromSql("select * from Reviews Where ProfessionId = {0}", id).ToList();
             var Profession = _db.Professions.SingleOrDefault(m => m.Id == id);
+            dynamic myModel = new ExpandoObject();
+            myModel.Reviews = Reviews;
+            myModel.Profession = Profession;
             if (Profession == null)
             {
                 return NotFound();
             }
-            return View(Profession);
+            return View(myModel);
         }
 
         // POST

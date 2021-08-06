@@ -1,4 +1,6 @@
-﻿@model WhosTheExpert.Models.Profession
+﻿@using WhosTheExpert.Models
+@model dynamic
+
 @{
     ViewData["Title"] = "Details";
 }
@@ -9,24 +11,49 @@
     <div class="form-group">
         <div class="row">
             <div class="col-sm-1">
-                <label asp-for="Name"></label>
+                <label value="@Model.Profession.Name"></label>
             </div>
             <div class="col-sm-4">
-                <input value="@Model.Name" disabled class="form-control" /> 
+                <input value="@Model.Profession.Name" disabled class="form-control" />
             </div>
         </div>
         <div class="row">
             <div class="col-sm-1">
-                <label asp-for="Description"></label>
+                <label value="@Model.Profession.Description"></label>
             </div>
             <div class="col-sm-6">
-                <input asp-for="Description" disabled class="form-control" />
+                <input value="@Model.Profession.Description" disabled class="form-control" />
             </div>
         </div>
     </div>
+
     <br />
     <div class="form-group">
-        <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-sm btn-success">Edit</a>
+        <a asp-action="Edit" asp-route-id="@Model.Profession.Id" class="btn btn-sm btn-success">Edit</a>
         <a asp-action="Index" class="btn btn-sm btn-default">Back to List</a>
     </div>
+</div>
+<br /><br />
+<div class="form-border">
+    <table class="table">
+        <tr>
+            <th>
+                Experts Name
+            </th>
+            <th>
+               Score
+            </th>
+        </tr>
+        @foreach (var item in Model.Reviews)
+        {
+            <tr>
+                <td>
+                    @item.ToName
+                </td>
+                <td>
+                    @item.Score
+                </td>
+            </tr>
+        }
+    </table>
 </div>

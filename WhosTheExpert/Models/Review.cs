@@ -22,5 +22,8 @@ namespace WhosTheExpert.Models
         [Required]
         public int Score { get; set; }
 
+        [Required]
+        public int ProfessionId { get; set; }
+
     }
 }
