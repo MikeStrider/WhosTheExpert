@@ -40,18 +40,16 @@ namespace WhosTheExpert.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("FromName")
-                        .IsRequired();
-
                     b.Property<int>("ProfessionId");
 
                     b.Property<int>("Score");
 
-                    b.Property<string>("ToName")
-                        .IsRequired();
-
                     b.Property<string>("WriteUp")
                         .IsRequired();
+
+                    b.Property<int>("WrittenByUserId");
+
+                    b.Property<int>("WrittenForUserId");
 
                     b.HasKey("Id");
 

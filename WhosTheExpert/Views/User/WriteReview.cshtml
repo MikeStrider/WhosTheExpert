@@ -1,30 +1,30 @@
 ﻿@model WhosTheExpert.Models.Review
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Write Review";
 }
 
-<h2>Add a Review</h2>
+<h2>Write Review</h2>
 <hr />
 
-<form asp-action="Create">
+<form asp-action="WriteReview">
     <div class="row form-border">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <div class="form-group">
             <div class="row">
                 <div class="col-sm-1">
-                    <label asp-for="FromName"></label>
+                    <label asp-for="WrittenForUserId"></label>
                 </div>
-                <div class="col-sm-4">
-                    <input asp-for="FromName" class="form-control" />
+                <div class="col-sm-6">
+                    <input asp-for="WrittenForUserId" class="form-control" value="Url.RequestContext.RouteData.Values["id"]">/>
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm-1">
-                    <label asp-for="ToName"></label>
+                    <label asp-for="ProfessionId"></label>
                 </div>
                 <div class="col-sm-6">
-                    <input asp-for="ToName" class="form-control" />
+                    <input asp-for="ProfessionId" class="form-control" />
                 </div>
             </div>
             <div class="row">
@@ -43,11 +43,19 @@
                     <input asp-for="Score" class="form-control" />
                 </div>
             </div>
+            <div class="row">
+                <div class="col-sm-1">
+                    <label asp-for="WrittenByUserId"></label>
+                </div>
+                <div class="col-sm-6">
+                    <input asp-for="WrittenByUserId" class="form-control" />
+                </div>
+            </div>
         </div>
         <br />
         <div class="form-group">
-            <input type="submit" value="Create" class="btn btn-sm btn-primary" />
-            <input type="submit" asp-Action="Index" value="Back to List" class="btn btn-sm btn-default" />
+            <input type="submit" value="Submit" class="btn btn-sm btn-success" />
+            <input type="submit" asp-Action="Index" value="Back" class="btn btn-sm btn-default" />
         </div>
     </div>
 

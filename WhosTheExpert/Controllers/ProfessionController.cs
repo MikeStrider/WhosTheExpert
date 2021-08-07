@@ -30,6 +30,7 @@ namespace WhosTheExpert.Controllers
 
         [HttpPost]                                  // POST
         [ValidateAntiForgeryToken]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Profession profession)
         {
             if (ModelState.IsValid)

@@ -33,6 +33,18 @@ namespace WhosTheExpert.Controllers
             return View();
         }
 
+        public async Task<IActionResult> WriteReview(Review review)
+        {
+            if (ModelState.IsValid)
+            {
+                _db.Add(review);
+                await _db.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+
+            return View();
+        }
+
         // Users/Details/3
         public ActionResult Details(int id)              // GET
         {

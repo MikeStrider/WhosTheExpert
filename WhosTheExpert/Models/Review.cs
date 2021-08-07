@@ -11,10 +11,10 @@ namespace WhosTheExpert.Models
         public int Id { get; set; }
 
         [Required]
-        public string FromName { get; set; }
+        public int WrittenByUserId { get; set; }
 
         [Required]
-        public string ToName { get; set; }
+        public int WrittenForUserId { get; set; }
 
         [Required]
         public string WriteUp { get; set; }

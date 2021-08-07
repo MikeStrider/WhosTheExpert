@@ -11,8 +11,8 @@ using WhosTheExpert.Models;
 namespace WhosTheExpert.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200628014837_firsttimeinawhile")]
-    partial class firsttimeinawhile
+    [Migration("20210807032935_21")]
+    partial class _21
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -36,7 +36,28 @@ namespace WhosTheExpert.Migrations
                     b.ToTable("Professions");
                 });
 
-            modelBuilder.Entity("WhosTheExpert.Models.Users", b =>
+            modelBuilder.Entity("WhosTheExpert.Models.Review", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("ProfessionId");
+
+                    b.Property<int>("Score");
+
+                    b.Property<string>("WriteUp")
+                        .IsRequired();
+
+                    b.Property<int>("WrittenByUserId");
+
+                    b.Property<int>("WrittenForUserId");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Reviews");
+                });
+
+            modelBuilder.Entity("WhosTheExpert.Models.User", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
@@ -45,7 +66,8 @@ namespace WhosTheExpert.Migrations
 
                     b.Property<string>("Description");
 
-                    b.Property<string>("Email");
+                    b.Property<string>("Email")
+                        .IsRequired();
 
                     b.Property<string>("Name")
                         .IsRequired();
