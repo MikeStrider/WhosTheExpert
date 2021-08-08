@@ -1,0 +1,62 @@
+﻿@model WhosTheExpert.Models.ReviewUserViewModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+<hr />
+
+<form asp-action="Create">
+    <div class="row form-border">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm-1">
+                    @Html.LabelFor(m => m.Review.WrittenForUserId)
+                </div>
+                <div class="col-sm-6">
+                    @Html.DropDownListFor(m => m.Review.WrittenForUserId, new SelectList(Model.User, "Id", "Name"), " ", new { @class = "form-control"})
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-1">
+                    @Html.LabelFor(m => m.Review.ProfessionId)
+                </div>
+                <div class="col-sm-6">
+                    @Html.TextBoxFor(m => m.Review.ProfessionId, new { @class = "form-control"})
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-1">
+                    <label asp-for="@Model.Review.WriteUp"></label>
+                </div>
+                <div class="col-sm-6">
+                    <input asp-for="@Model.Review.WriteUp" class="form-control" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-1">
+                    <label asp-for="@Model.Review.Score"></label>
+                </div>
+                <div class="col-sm-6">
+                    <input asp-for="@Model.Review.Score" class="form-control" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-1">
+                    @Html.LabelFor(m => m.Review.WrittenByUserId)
+                </div>
+                <div class="col-sm-6">
+                    @Html.DropDownListFor(m => m.Review.WrittenByUserId, new SelectList(Model.User, "Id", "Name"), " ", new { @class = "form-control" })
+                </div>
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Update" class="btn btn-sm btn-success" />
+                <input type="submit" asp-Action="Index" value="Back to List" class="btn btn-sm btn-default" />
+            </div>
+        </div>
+    </div>
+</form>
+

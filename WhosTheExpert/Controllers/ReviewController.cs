@@ -24,13 +24,18 @@ namespace WhosTheExpert.Controllers
 
         public async Task<IActionResult> Create(Review review)
         {
+            var users = _db.Users.ToList();
+            var viewModel = new ReviewUserViewModel
+            {
+                User = users
+            };
             if (ModelState.IsValid)
             {
                 _db.Add(review);
                 await _db.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View();
+            return View(viewModel);
         }
 
         // Review/Details/3
