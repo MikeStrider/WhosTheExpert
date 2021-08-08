@@ -1,5 +1,5 @@
 # WhosTheExpert
-Learning MVC Core 2.0
+Learning MVC Core 2.1
 
 Users can create accounts and boost there own or someone elses profession.  The idea is to have a community that constantly judges who is the expert in a certin field.
 
