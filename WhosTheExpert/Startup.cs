@@ -40,7 +40,10 @@ namespace WhosTheExpert
                 app.UseExceptionHandler("/Home/Error");
             }
 
+            //app.UseHttpsRedirection();
             app.UseStaticFiles();
+            app.UseAuthentication();
+
 
             app.UseMvc(routes =>
             {
